@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-
 const myStyles = {
     margin: '10px',
     margin: 'auto',
@@ -15,7 +14,6 @@ const shuffleBtn = {
     width: '50%',
     padding: '10px',
     marginTop: '2em'
-
 }
 
 function Images() {
@@ -30,38 +28,19 @@ function Images() {
         };
         getImages();
     }, []);
-    console.log(backendData);
+    
     return (
         <div class="container" style={myStyles}>
             <div class="row g-2">
-                <div class="col-6">
-                    <div class="p-3 border bg-light" style={imageDim}>
-                        
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="p-3 border bg-light" style={imageDim}>
-
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="p-3 border bg-light" style={imageDim}>
-                        {
-                            backendData.map((imageLink, i) =>
+                {
+                    backendData.map((imageLink, i) =>
+                        <div class="col-6">
+                            <div class="p-3 border bg-light" style={imageDim}>
                                 <img key={i} src={imageLink}></img>
-                            )
-                        }
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="p-3 border bg-light" style={imageDim}>
-                        {
-                            backendData.map((imageLink, i) =>
-                                <img key={i} src={imageLink}></img>
-                            )
-                        }
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                    )
+                }
                 <button type="button" class="btn btn-outline-danger" style={shuffleBtn} >Shuffle</button>
             </div>
         </div>
@@ -70,8 +49,3 @@ function Images() {
 
 export default Images;
 
-{
-    backendData.map((imageLink, i) =>
-        <img key={i} src={imageLink}></img>
-    )
-}
